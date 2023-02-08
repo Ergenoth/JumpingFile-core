@@ -14,13 +14,14 @@ public:
     void testRunStarting(Catch::TestRunInfo const&) override {
         // Start JumpingFile server for testing
         // TODO: Take care of the different environments such as Linux, Windows or Mac
+        // Additionally does not really work... Let's think about at another time
         char *argv[] = {"/projects/JumpingFile-core/build/JumpingFile-core", NULL};
-        posix_spawnp(&childProcess, "/projects/JumpingFile-core/build/JumpingFile-core", NULL, NULL, argv, environ);
+        //posix_spawnp(&childProcess, "/projects/JumpingFile-core/build/JumpingFile-core", NULL, NULL, argv, environ);
     }
 
     void testRunEnded(Catch::TestRunStats const& testRunStats ) override {
         // Kill the process of the JumpingFile server after testing
-        kill(childProcess, SIGTERM);
+        //kill(childProcess, SIGTERM);
     }
 };
 
