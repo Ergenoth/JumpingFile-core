@@ -5,7 +5,7 @@
 
 class testClass {
     public:
-        std::string printMessage();
+        std::string serverStartup();
 };
 
 #endif

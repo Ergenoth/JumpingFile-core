@@ -1,21 +1,12 @@
 #include <iostream>
-#include "testClass.h"
-#include <boost/program_options.hpp>
-
-namespace po = boost::program_options;
+#include <crow.h>
 
 int main(int argc, char *argv[]) {
-    po::options_description desc("Allowed options");
-    desc.add_options()
-        ("Help", "Show help message")
-        ("Cobol path", "Path to a single cobol module or a directory of cobol modules"); 
-        ("Cobol configuration", "Path to the configuration/implementation of the converter");
+    crow::SimpleApp app;
+    CROW_ROUTE(app, "/")([](){
+        return "Hello World";
+    });
+    app.run();
 
-    std::cout << argc << std::endl;
-    for (size_t i = 0; i < argc; i++)
-    {
-        std::cout << argv[i] << std::endl;
-    }
-    
-    return EXIT_SUCCESS;
+    //return EXIT_SUCCESS;
 }
