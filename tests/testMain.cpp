@@ -6,5 +6,5 @@
 
 TEST_CASE ("Startup", "[Startup]") {
     testClass myObject;
-    REQUIRE ( myObject.serverStartup() == "Hello World");
+    REQUIRE ( myObject.serverStartup() == "All up and running");
 }

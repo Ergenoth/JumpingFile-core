@@ -23,9 +23,11 @@ TARGET_LINK_LIBRARIES(JumpingFile-core PRIVATE
 )
 TARGET_INCLUDE_DIRECTORIES(JumpingFile-core PRIVATE 
     "include/jumpingkey/core/configuration"
+    "include/jumpingkey/core/webservices"
 )
 target_sources(JumpingFile-core PRIVATE 
     "src/jumpingkey/core/configuration/JumpingfileConfiguration.cpp"
+    "src/jumpingkey/core/webservices/StatusWebService.cpp"
 )
 
 # Test Suite for the application

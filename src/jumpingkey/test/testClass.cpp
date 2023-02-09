@@ -26,7 +26,7 @@ std::string testClass::serverStartup() {
     // Set up an HTTP GET request message
     http::request<http::string_body> req;
     req.method(http::verb::get);
-    req.target("/");
+    req.target("/status/overallStatus");
     req.set(http::field::host, testClass::testHost);
     req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
