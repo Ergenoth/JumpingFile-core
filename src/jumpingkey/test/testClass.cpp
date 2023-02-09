@@ -1,6 +1,5 @@
 #include <boost/beast.hpp>
 #include "testClass.h"
-#include <iostream>
 
 namespace beast = boost::beast; // from <boost/beast.hpp>
 namespace http = beast::http;   // from <boost/beast/http.hpp>
@@ -9,7 +8,6 @@ using tcp = net::ip::tcp;
 
 std::string testClass::serverStartup() {
     // Checks if the server started correctly by calling the status api
-
     std::string target = "/";
 
     // The io_context is required for all I/O
@@ -31,9 +29,7 @@ std::string testClass::serverStartup() {
     req.target("/");
     req.set(http::field::host, testClass::testHost);
     req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
-    //req.set(http::field::content_type, "plain/text");
-    //req.body() = {{"type", "test"}, {"content", "pure awesomeness"}};
-    //req.prepare_payload();
+
     // Send the HTTP request to the remote host
     http::write(stream, req);
     
@@ -48,12 +44,11 @@ std::string testClass::serverStartup() {
 
     // Save the response in a variable
     std::string returnValue = res.body();
-    //std::cout << res << std::endl;
 
     // Gracefully close the socket
     beast::error_code ec;
     stream.socket().shutdown(tcp::socket::shutdown_both, ec);
 
-    //return returnValue;
+    //return the value which we received from the service;
     return returnValue;
 }
