@@ -17,3 +17,7 @@ JumpingFileLogger::JumpingFileLogger(boost::shared_ptr< sinks::text_file_backend
     // Add the sink to the core to be able to write to the sink
     logging::core::get()->add_sink(sink);
 }
+
+boost::log::sources::logger JumpingFileLogger::getLogger() {
+    return lg;
+}
