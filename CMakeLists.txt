@@ -5,7 +5,8 @@ PROJECT(JumpingFile-core)
 FIND_PACKAGE(Catch2 3 REQUIRED)
 
 # Boost
-FIND_PACKAGE(Boost COMPONENTS program_options REQUIRED)
+#FIND_PACKAGE(Boost COMPONENTS program_options REQUIRED)
+FIND_PACKAGE(Boost COMPONENTS log_setup log)
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 
 # Crow
@@ -24,10 +25,13 @@ TARGET_LINK_LIBRARIES(JumpingFile-core PRIVATE
 TARGET_INCLUDE_DIRECTORIES(JumpingFile-core PRIVATE 
     "include/jumpingkey/core/configuration"
     "include/jumpingkey/core/webservices"
+    "include/jumpingkey/core/log"
 )
 target_sources(JumpingFile-core PRIVATE 
     "src/jumpingkey/core/configuration/JumpingfileConfiguration.cpp"
     "src/jumpingkey/core/webservices/StatusWebService.cpp"
+    "src/jumpingkey/core/log/JumpingFileLogger.cpp"
+    "src/jumpingkey/core/log/Logger.cpp"
 )
 
 # Test Suite for the application
